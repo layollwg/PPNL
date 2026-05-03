@@ -1,6 +1,6 @@
-# Core dependencies (all standard library except the ones below)
-# Python >= 3.8 required
+--extra-index-url https://download.pytorch.org/whl/cu118
 
-# No third-party packages are strictly required for the data pipeline.
-# The scripts below are optional for analysis / notebooks:
-numpy>=1.21
+torch>=2.0.0
+transformers>=4.30.0
+accelerate>=0.20.0
+sentencepiece>=0.1.99
