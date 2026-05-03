@@ -6,14 +6,6 @@ This repository contains the **data generation, preprocessing, evaluation and sa
 
 ## Directory Structure
 
-```
-# PPNL – Part 1: Single-Goal Grid Navigation Pipeline
-
-This repository contains the **data generation, preprocessing, evaluation, and sanity-check pipeline** for single-goal grid path-planning experiments. This constitutes Part 1 of the PPNL project (30% of the total grade).
-
----
-
-## Directory Structure
 ```text
 PPNL/
 ├── README.md
@@ -131,7 +123,7 @@ python scripts/data_preprocess.py --input data/single_goal/6x6_dense/test_ood.js
 
 This validates required fields and normalises the `target` action string in-place.
 
-## 3. Sanity Check
+### 3 · Sanity Check
 
 Before proceeding to baseline evaluation or model training, it is crucial to verify that the generated datasets are logically consistent. The `sanity_check.py` script simulates the environment executor to validate the physical consistency of the data.
 
@@ -141,10 +133,9 @@ You can scan the entire `data/single_goal` directory to verify all grid sizes (5
 # Check all generated .jsonl files (including IID and OOD splits)
 python scripts/sanity_check.py --data_dir data/single_goal
 
-# Specify Check the 7x7 OOD test set
+# Check the 7x7 OOD test set specifically
 python scripts/sanity_check.py --data_file data/single_goal/7x7/test_ood.jsonl
-
-
+```
 
 ### 4 · Evaluate model predictions
 
