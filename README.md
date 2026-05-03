@@ -7,30 +7,36 @@ This repository contains the **data generation, preprocessing, evaluation and sa
 ## Directory Structure
 
 ```
+# PPNL – Part 1: Single-Goal Grid Navigation Pipeline
+
+This repository contains the **data generation, preprocessing, evaluation, and sanity-check pipeline** for single-goal grid path-planning experiments. This constitutes Part 1 of the PPNL project (30% of the total grade).
+
+---
+
+## Directory Structure
+```text
 PPNL/
 ├── README.md
 ├── requirements.txt
-├── run_all_baselines.sh              
+├── run_all_baselines.sh          # Batch execution script 
 ├── scripts/
-│   ├── generate_single_goal_data.py   # Generate IID / OOD JSONL datasets
-│   ├── data_preprocess.py             # Validate & normalise to standard schema
-│   ├── sanity_check.py                # Gold-path / bad-action self-tests
-│   ├── run_baseline.py                # [NEW] HF Transformers inference script for LLMs
-│   ├── evaluate_executor.py           # Parse predictions + compute metrics
-│   ├── summarize_results.py           # [NEW] Aggregate JSON metrics into a Markdown table
+│   ├── generate_single_goal_data.py # Generate IID / OOD JSONL datasets
+│   ├── data_preprocess.py           # Validate & normalise to standard schema
+│   ├── sanity_check.py              # Gold-path / bad-action self-tests
+│   ├── run_baseline.py              # HF Transformers inference script for LLMs
+│   ├── evaluate_executor.py         # Parse predictions + compute metrics
+│   ├── summarize_results.py         # Aggregate JSON metrics into a Markdown table
 │   └── utils/
-│       ├── actions.py                 # Action parsing & normalisation
-│       ├── grid.py                    # BFS shortest path, grid rendering
-│       └── io.py                      # JSONL I/O, seed utilities
+│       ├── actions.py               # Action parsing & normalisation
+│       ├── grid.py                  # BFS shortest path, grid rendering
+│       └── io.py                    # JSONL I/O, seed utilities
 ├── data/
 │   └── single_goal/
-│       ├── 6x6/
-│       │   ├── train.jsonl            # 1,000 IID training samples
-│       │   ├── valid.jsonl            #   200 IID validation samples
-│       │   └── test_iid.jsonl         #   200 IID test samples
-│       └── 6x6_dense/
-│           └── test_ood.jsonl         #   200 OOD (dense) test samples
-└── outputs/                  
+│       ├── 5x5/                     # OOD (Smaller size)
+│       ├── 6x6/                     # IID (Training/Validation/Test)
+│       ├── 6x6_dense/               # OOD (Higher obstacle density)
+│       └── 7x7/                     # OOD (Larger size)
+└── outputs/                         # Stores .jsonl predictions & .json metrics
 ```
 
 ---
