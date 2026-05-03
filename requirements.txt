@@ -1,0 +1,6 @@
+# Core dependencies (all standard library except the ones below)
+# Python >= 3.8 required
+
+# No third-party packages are strictly required for the data pipeline.
+# The scripts below are optional for analysis / notebooks:
+numpy>=1.21

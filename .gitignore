@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Distribution / packaging
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Model outputs and large generated files (re-run scripts to regenerate)
+outputs/
+
+# Editor / OS artefacts
+.DS_Store
+.idea/
+.vscode/
+*.swp
