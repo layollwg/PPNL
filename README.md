@@ -99,6 +99,10 @@ python scripts/generate_single_goal_data.py \
 python scripts/generate_single_goal_data.py \
     --out_dir data/single_goal/6x6_dense --split test_ood --n_samples 200 \
     --dense --seed 45
+
+python scripts/generate_single_goal_data.py --out_dir data/single_goal/5x5 --split test_ood --rows 5 --cols 5 --n_samples 200 --seed 55
+
+python scripts/generate_single_goal_data.py --out_dir data/single_goal/7x7 --split test_ood --rows 7 --cols 7 --n_samples 200 --seed 77
 ```
 
 All data files are already committed to this repository and do **not** need to be regenerated unless you wish to change the parameters.
@@ -109,31 +113,32 @@ All data files are already committed to this repository and do **not** need to b
 python scripts/data_preprocess.py \
     --input  data/single_goal/6x6/train.jsonl \
     --output data/single_goal/6x6/train.jsonl
+
+python scripts/data_preprocess.py --input data/single_goal/6x6/valid.jsonl --output data/single_goal/6x6/valid.jsonl
+python scripts/data_preprocess.py --input data/single_goal/6x6/test_iid.jsonl --output data/single_goal/6x6/test_iid.jsonl
+
+#preprocess OOD
+python scripts/data_preprocess.py --input data/single_goal/5x5/test_ood.jsonl --output data/single_goal/5x5/test_ood.jsonl
+python scripts/data_preprocess.py --input data/single_goal/7x7/test_ood.jsonl --output data/single_goal/7x7/test_ood.jsonl
+python scripts/data_preprocess.py --input data/single_goal/6x6_dense/test_ood.jsonl --output data/single_goal/6x6_dense/test_ood.jsonl
 ```
 
 This validates required fields and normalises the `target` action string in-place.
 
-### 3 · Sanity check
+## 3. Sanity Check
 
+Before proceeding to baseline evaluation or model training, it is crucial to verify that the generated datasets are logically consistent. The `sanity_check.py` script simulates the environment executor to validate the physical consistency of the data.
+
+### Batch Check All Datasets
+You can scan the entire `data/single_goal` directory to verify all grid sizes (5x5, 6x6, 7x7) and obstacle densities (6x6_dense) simultaneously:
 ```bash
-# Check all data files at once
+# Check all generated .jsonl files (including IID and OOD splits)
 python scripts/sanity_check.py --data_dir data/single_goal
 
-# Or check a single file
-python scripts/sanity_check.py --data_file data/single_goal/6x6/test_iid.jsonl
-```
+# Specify Check the 7x7 OOD test set
+python scripts/sanity_check.py --data_file data/single_goal/7x7/test_ood.jsonl
 
-Expected output:
 
-```
-[✓] data/single_goal/6x6/test_iid.jsonl  n=200  gold_success=1.0000  bad_fail=...  [PASS]
-...
-All sanity checks passed.
-```
-
-The check verifies that:
-- **gold paths** always succeed (Success = 1, Feasible = 1)
-- **bad actions** (all `up`) almost always fail (fail rate >= 95 %)
 
 ### 4 · Evaluate model predictions
 
@@ -185,3 +190,13 @@ All data files included in this repository were generated with fixed seeds:
 | valid | 43 | 200 |
 | test_iid | 44 | 200 |
 | test_ood (dense) | 45 | 200 |
+| test 5×5 | 55 | 200 |
+| test 7×7 | 77 | 200 |
+
+
+baseline result:
+| Model | Parse Rate | Feasibility | Success Rate | Optimality |
+|---|---|---|---|---|
+| bart-base | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| flan-t5-base | 0.0150 | 0.0100 | 0.0000 | 0.0000 |
+| flan-t5-small | 0.1500 | 0.0300 | 0.0000 | 0.0000 |
