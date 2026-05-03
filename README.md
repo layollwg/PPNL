@@ -10,24 +10,27 @@ This repository contains the **data generation, preprocessing, evaluation and sa
 PPNL/
 ├── README.md
 ├── requirements.txt
-├── .gitignore
+├── run_all_baselines.sh              
 ├── scripts/
 │   ├── generate_single_goal_data.py   # Generate IID / OOD JSONL datasets
 │   ├── data_preprocess.py             # Validate & normalise to standard schema
-│   ├── evaluate_executor.py           # Parse predictions + compute metrics
 │   ├── sanity_check.py                # Gold-path / bad-action self-tests
+│   ├── run_baseline.py                # [NEW] HF Transformers inference script for LLMs
+│   ├── evaluate_executor.py           # Parse predictions + compute metrics
+│   ├── summarize_results.py           # [NEW] Aggregate JSON metrics into a Markdown table
 │   └── utils/
 │       ├── actions.py                 # Action parsing & normalisation
 │       ├── grid.py                    # BFS shortest path, grid rendering
 │       └── io.py                      # JSONL I/O, seed utilities
-└── data/
-    └── single_goal/
-        ├── 6x6/
-        │   ├── train.jsonl            # 1 000 IID training samples
-        │   ├── valid.jsonl            #   200 IID validation samples
-        │   └── test_iid.jsonl         #   200 IID test samples
-        └── 6x6_dense/
-            └── test_ood.jsonl         #   200 OOD (dense) test samples
+├── data/
+│   └── single_goal/
+│       ├── 6x6/
+│       │   ├── train.jsonl            # 1,000 IID training samples
+│       │   ├── valid.jsonl            #   200 IID validation samples
+│       │   └── test_iid.jsonl         #   200 IID test samples
+│       └── 6x6_dense/
+│           └── test_ood.jsonl         #   200 OOD (dense) test samples
+└── outputs/                  
 ```
 
 ---
