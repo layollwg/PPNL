@@ -258,7 +258,6 @@ All data files included in this repository were generated with fixed seeds:
 | test 5×5 | 55 | 200 |
 | test 7×7 | 77 | 200 |
 
-
 ### 5×5 results
 
 | Model | N | Parse Rate | Feasibility | Success Rate | Optimality |
