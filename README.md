@@ -286,7 +286,7 @@ All data files included in this repository were generated with fixed seeds:
 | flan-t5-base | 200 | 0.0250 | 0.0150 | 0.0000 | 0.0000 |
 | flan-t5-small | 200 | 0.2300 | 0.0050 | 0.0000 | 0.0000 |
 
-### 6×6 dense results
+### 6×6 Dense results
 
 | Model | N | Parse Rate | Feasibility | Success Rate | Optimality |
 |---|---|---|---|---|---|
@@ -297,7 +297,7 @@ All data files included in this repository were generated with fixed seeds:
 
 ### Cross-grid Success Rate comparison
 
-| Model | 5×5 | 6×6 | 7×7 | 6×6 dense |
+| Model | 5×5 | 6×6 | 7×7 | 6×6 Dense |
 |---|---|---|---|---|
 | bart-base | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | deepseek-chat | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
