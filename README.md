@@ -199,12 +199,10 @@ python scripts/run_api_zeroshot.py \
 
 #### Prompt version note (API zero-shot)
 
-The current `scripts/run_api_zeroshot.py` uses the latest prompt version with:
+`scripts/run_api_zeroshot.py` uses the default prompt specification (updated May 2026):
 
 - **System prompt**: deterministic shortest-path planner constraints, strict action space (`up/down/left/right`), shortest valid path requirement, and strict plain-token output format (no explanation / no code block).
 - **User prompt**: `input_coord` plus optional `input_grid` visual, followed by an explicit action-sequence output request.
-
-This prompt version is now the default for API zero-shot runs (`run_api_zeroshot.sh` / `run_api_zeroshot.py`).
 
 ### 6 · Evaluate model predictions
 
