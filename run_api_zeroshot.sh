@@ -2,7 +2,7 @@
 #
 # run_api_zeroshot.sh
 #
-# Zero-shot LLM API baseline on all grid sizes (5×5, 6×6, 7×7).
+# Zero-shot LLM API baseline on all grid sizes (5×5, 6×6, 6×6_dense, 7×7).
 # Works with any OpenAI-compatible provider (DeepSeek, Zhipu, Moonshot, Qwen, OpenAI …).
 #
 # Usage:
@@ -58,9 +58,10 @@ echo "🚀 Starting API zero-shot baseline | model: $MODEL"
 
 declare -A DATASETS
 DATASETS["6x6"]="data/single_goal/6x6/test_iid.jsonl"
+DATASETS["6x6_dense"]="data/single_goal/6x6_dense/test_ood.jsonl"
 DATASETS["5x5"]="data/single_goal/5x5/test_ood.jsonl"
 DATASETS["7x7"]="data/single_goal/7x7/test_ood.jsonl"
-DATASET_ORDER=("6x6" "5x5" "7x7")
+DATASET_ORDER=("6x6" "6x6_dense" "5x5" "7x7")
 
 for GRID in "${DATASET_ORDER[@]}"; do
     DATA_FILE="${DATASETS[$GRID]}"
