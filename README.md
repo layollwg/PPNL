@@ -259,7 +259,7 @@ All data files included in this repository were generated with fixed seeds:
 | test 7×7 | 77 | 200 |
 
 
-### 5x5 results
+### 5×5 results
 
 | Model | N | Parse Rate | Feasibility | Success Rate | Optimality |
 |---|---|---|---|---|---|
@@ -268,7 +268,7 @@ All data files included in this repository were generated with fixed seeds:
 | flan-t5-base | 200 | 0.0450 | 0.0300 | 0.0000 | 0.0000 |
 | flan-t5-small | 200 | 0.0850 | 0.0350 | 0.0000 | 0.0000 |
 
-### 6x6 results
+### 6×6 results
 
 | Model | N | Parse Rate | Feasibility | Success Rate | Optimality |
 |---|---|---|---|---|---|
@@ -277,7 +277,7 @@ All data files included in this repository were generated with fixed seeds:
 | flan-t5-base | 200 | 0.0150 | 0.0100 | 0.0000 | 0.0000 |
 | flan-t5-small | 200 | 0.1500 | 0.0300 | 0.0000 | 0.0000 |
 
-### 7x7 results
+### 7×7 results
 
 | Model | N | Parse Rate | Feasibility | Success Rate | Optimality |
 |---|---|---|---|---|---|
