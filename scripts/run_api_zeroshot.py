@@ -65,14 +65,15 @@ from scripts.utils.io import read_jsonl, write_jsonl
 # ---------------------------------------------------------------------------
 
 SYSTEM_PROMPT = (
-    "You are a path-planning agent on a 2-D grid. "
-    "The grid uses (row, col) coordinates with the origin at the top-left corner. "
-    "Valid actions are: up (row-1), down (row+1), left (col-1), right (col+1). "
-    "Cells marked as obstacles cannot be entered. "
-    "Your task is to output the shortest sequence of actions that moves the agent "
-    "from Start to Goal without hitting any obstacle or leaving the grid. "
-    "Reply with ONLY the actions separated by spaces, e.g.: down right right up. "
-    "Do not include any explanation or extra text."
+    "You are a deterministic shortest-path planner for a 2-D grid. "
+    "Coordinates are (row, col), 0-indexed, origin at the top-left. "
+    "Allowed actions and transitions: up(row-1), down(row+1), left(col-1), right(col+1). "
+    "You must move from Start (S) to Goal (G), never leave the grid, and never enter obstacles (#). "
+    "Return a shortest valid action sequence only. "
+    "Output format is strict: lower-case action tokens from {up, down, left, right}, "
+    "separated by a single space, with no punctuation, no numbering, no code block, and no explanation. "
+    "If Start is already Goal, output an empty string. "
+    "Think silently and output only the final action sequence."
 )
 
 
