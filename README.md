@@ -197,6 +197,15 @@ python scripts/run_api_zeroshot.py \
     --out_file  outputs/6x6/deepseek-chat_preds.jsonl
 ```
 
+#### Prompt version note (API zero-shot)
+
+The current `scripts/run_api_zeroshot.py` uses the latest prompt version with:
+
+- **System prompt**: deterministic shortest-path planner constraints, strict action space (`up/down/left/right`), shortest valid path requirement, and strict plain-token output format (no explanation / no code block).
+- **User prompt**: `input_coord` plus optional `input_grid` visual, followed by an explicit action-sequence output request.
+
+This prompt version is now the default for API zero-shot runs (`run_api_zeroshot.sh` / `run_api_zeroshot.py`).
+
 ### 6 · Evaluate model predictions
 
 Create a predictions JSONL file where each line has:
