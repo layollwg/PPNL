@@ -6,11 +6,12 @@ MODELS=("google/flan-t5-small" "google/flan-t5-base" "facebook/bart-base")
 # 定义所有数据集（grid_label:data_file）
 declare -A DATASETS
 DATASETS["6x6"]="data/single_goal/6x6/test_iid.jsonl"
+DATASETS["6x6_dense"]="data/single_goal/6x6_dense/test_ood.jsonl"
 DATASETS["5x5"]="data/single_goal/5x5/test_ood.jsonl"
 DATASETS["7x7"]="data/single_goal/7x7/test_ood.jsonl"
-DATASET_ORDER=("6x6" "5x5" "7x7")
+DATASET_ORDER=("6x6" "6x6_dense" "5x5" "7x7")
 
-echo "🚀 开始执行 Baseline 批量测试（6x6 / 5x5 / 7x7）..."
+echo "🚀 开始执行 Baseline 批量测试（6x6 / 6x6_dense / 5x5 / 7x7）..."
 
 for GRID in "${DATASET_ORDER[@]}"; do
     DATA_FILE="${DATASETS[$GRID]}"
